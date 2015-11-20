@@ -30,12 +30,15 @@ defmodule DoesThisEmailWork.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.0.3"},
-     {:phoenix_ecto, "~> 1.1"},
-     {:postgrex, ">= 0.0.0"},
-     {:phoenix_html, "~> 2.1"},
-     {:phoenix_live_reload, "~> 1.0", only: :dev},
-     {:cowboy, "~> 1.0"}]
+    [
+      {:cowboy,              "~> 1.0"},
+      {:email_checker,       "~> 0.0.1"},
+      {:phoenix,             "~> 1.0.3"},
+      {:phoenix_ecto,        "~> 1.1"},
+      {:postgrex,            ">= 0.0.0"},
+      {:phoenix_html,        "~> 2.1"},
+      {:phoenix_live_reload, "~> 1.0", only: :dev}
+   ]
   end
 
   # Aliases are shortcut or tasks specific to the current project.

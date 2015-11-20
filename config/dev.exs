@@ -35,8 +35,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :does_this_email_work, DoesThisEmailWork.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "work",
+  password: "",
   database: "does_this_email_work_dev",
   hostname: "localhost",
   pool_size: 10
