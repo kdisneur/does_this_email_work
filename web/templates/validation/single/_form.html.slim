@@ -1,0 +1,3 @@
+= form_for @conn, single_path(@conn, :create), [as: :validation], fn form ->
+  = text_input form, :email
+  = submit "Validate"

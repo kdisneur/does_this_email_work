@@ -1,0 +1,37 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    meta name="description" content="Simple tool which validate emails"
+    meta name="author" content="Kevin Disneur"
+    title
+      | Does this email work?
+    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
+  body
+    nav class="navbar navbar-default"
+      div class="container"
+        div class="navbar-header"
+          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-does-this-email-work" aria-expanded="false"
+            span class="sr-only"
+              | Toggle navigation
+            span class="icon-bar"
+            span class="icon-bar"
+            span class="icon-bar"
+          a class="navbar-brand" href="#"
+            | Does this email work?
+
+        div class="collapse navbar-collapse" id="navbar-does-this-email-work"
+          ul class="nav navbar-nav"
+
+    div class="container" role="main"
+
+      p class="alert alert-info" role="alert"
+        = get_flash(@conn, :success)
+      p class="alert alert-danger" role="alert"
+        = get_flash(@conn, :error)
+
+      = @inner
+
+    script src="#{static_path(@conn, "/js/app.js")}"

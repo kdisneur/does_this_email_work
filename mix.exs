@@ -37,7 +37,8 @@ defmodule DoesThisEmailWork.Mixfile do
       {:phoenix_ecto,        "~> 1.1"},
       {:postgrex,            ">= 0.0.0"},
       {:phoenix_html,        "~> 2.1"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev}
+      {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:phoenix_slim,        "~> 0.4.1"}
    ]
   end
 
