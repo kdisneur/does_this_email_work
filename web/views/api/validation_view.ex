@@ -3,6 +3,6 @@ defmodule DoesThisEmailWork.API.ValidationView do
 
   def render("create.json", %{result: result}) do
     result
-    |> Enum.map(fn ({status, email}) -> %{ status: status, email: email } end)
+    |> Enum.map(fn ({status, email}) -> %{ valid: status == :ok, email: email } end)
   end
 end

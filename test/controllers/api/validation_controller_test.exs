@@ -13,8 +13,8 @@ defmodule DoesThisEmailWork.API.ValidationControllerTest do
 
   defp expected_result_data do
     [
-      %{status: :error, email: "non-existing@domain.tld"},
-      %{status: :ok, email: "kevin@disneur.me"}
+      %{valid: false, email: "non-existing@domain.tld"},
+      %{valid: true, email: "kevin@disneur.me"}
     ]
   end
 end
