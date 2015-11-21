@@ -1,0 +1,1 @@
+<%= render DoesThisEmailWork.Validation.SingleView, "_form.html", conn: @conn, email: @email %>

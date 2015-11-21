@@ -16,7 +16,8 @@ defmodule DoesThisEmailWork.Router do
   scope "/", DoesThisEmailWork do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", Validation.SingleController, :new
+    post "/", Validation.SingleController, :create
   end
 
   scope "/api", DoesThisEmailWork.API do
