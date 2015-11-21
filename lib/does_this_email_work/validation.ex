@@ -1,4 +1,12 @@
 defmodule DoesThisEmailWork.Validation do
+  @moduledoc ~s"""
+  This module is used to validate if an email, or a list of emails, are valid.
+  It performs many check against:
+
+  * regular expression
+  * existence of an MX record for the domain name
+  * existence of the email address on the SMTP sever behind the MX record
+  """
 
   @doc ~s"""
   With a single email it will return a tuple containing either `{:ok, <email>}`
@@ -27,11 +35,6 @@ defmodule DoesThisEmailWork.Validation do
   end
 
   defp validate(email) do
-    case EmailChecker.valid?(email) do
-      true ->
-        {:ok, email}
-      false ->
-        {:error, email}
-    end
+    DoesThisEmailWork.ValidationCache.validates(email)
   end
 end

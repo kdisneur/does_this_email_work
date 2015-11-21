@@ -18,7 +18,7 @@ defmodule DoesThisEmailWork.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {DoesThisEmailWork, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+     applications: [:email_checker, :phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex]]
   end
 
@@ -32,7 +32,7 @@ defmodule DoesThisEmailWork.Mixfile do
   defp deps do
     [
       {:cowboy,              "~> 1.0"},
-      {:email_checker,       "~> 0.0.1"},
+      {:email_checker,       "~> 0.0.2"},
       {:phoenix,             "~> 1.0.3"},
       {:phoenix_ecto,        "~> 1.1"},
       {:postgrex,            ">= 0.0.0"},

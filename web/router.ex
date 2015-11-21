@@ -19,8 +19,9 @@ defmodule DoesThisEmailWork.Router do
     get "/", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", DoesThisEmailWork do
-  #   pipe_through :api
-  # end
+  scope "/api", DoesThisEmailWork.API do
+    pipe_through :api
+
+    post "/validation", ValidationController, :create
+  end
 end

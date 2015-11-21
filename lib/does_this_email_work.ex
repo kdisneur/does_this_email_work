@@ -7,12 +7,9 @@ defmodule DoesThisEmailWork do
     import Supervisor.Spec, warn: false
 
     children = [
-      # Start the endpoint when the application starts
       supervisor(DoesThisEmailWork.Endpoint, []),
-      # Start the Ecto repository
       worker(DoesThisEmailWork.Repo, []),
-      # Here you could define other workers and supervisors as children
-      # worker(DoesThisEmailWork.Worker, [arg1, arg2, arg3]),
+      worker(DoesThisEmailWork.ValidationCache, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
