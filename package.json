@@ -1,12 +1,17 @@
 {
-  "repository": {
-  },
-  "dependencies": {
-    "brunch": "^1.8.5",
-    "babel-brunch": "^5.1.1",
-    "clean-css-brunch": ">= 1.0 < 1.8",
-    "css-brunch": ">= 1.0 < 1.8",
-    "javascript-brunch": ">= 1.0 < 1.8",
-    "uglify-js-brunch": ">= 1.0 < 1.8"
+  "repository": {},
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "compass-loader": "0.0.4",
+    "compass-mixins": "^0.12.7",
+    "css-loader": "^0.23.0",
+    "font-awesome": "^4.4.0",
+    "foundation-sites": "^6.0.3",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.8"
   }
 }

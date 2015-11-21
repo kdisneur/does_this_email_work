@@ -8,30 +8,24 @@ html lang="en"
     meta name="author" content="Kevin Disneur"
     title
       | Does this email work?
-    link rel="stylesheet" href="#{static_path(@conn, "/css/app.css")}"
   body
-    nav class="navbar navbar-default"
-      div class="container"
-        div class="navbar-header"
-          button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-does-this-email-work" aria-expanded="false"
-            span class="sr-only"
-              | Toggle navigation
-            span class="icon-bar"
-            span class="icon-bar"
-            span class="icon-bar"
-          a class="navbar-brand" href="#"
-            | Does this email work?
+    div class="top-bar"
+      div class="row"
+        div class="small-12 columns"
+          div class="top-bar-left"
+            ul class="dropdown menu" data-dropdown-menu=""
+              li class="menu-text"
+                | Does this email work?
+              li class="has-submenu"
 
-        div class="collapse navbar-collapse" id="navbar-does-this-email-work"
-          ul class="nav navbar-nav"
+    = Enum.map [:error, :success], fn type ->
+      = if get_flash(@conn, type) do
+        div class="row"
+          div class="small-12 columns"
+            div class="callout #{get_flash_css_type(type)}"
+              p
+                = get_flash(@conn, type)
 
-    div class="container" role="main"
+    = @inner
 
-      p class="alert alert-info" role="alert"
-        = get_flash(@conn, :success)
-      p class="alert alert-danger" role="alert"
-        = get_flash(@conn, :error)
-
-      = @inner
-
-    script src="#{static_path(@conn, "/js/app.js")}"
+    script src="#{static_path(@conn, "/js/bundle.js")}"
