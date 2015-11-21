@@ -1,0 +1,67 @@
+.m-home--header {
+  @include background(linear-gradient($primary-color, lighten($primary-color, 20%)));
+  min-height:    400px;
+
+  .top-bar, .top-bar ul {
+    background: transparent;
+  }
+}
+
+.m-home--header--title {
+  margin-top: 60px;
+  text-align: center;
+}
+.m-home--header--description {
+  text-align: center;
+}
+
+.button.hollow.m-home--callout--button {
+  @include button-hollow;
+  border-color: $inversed-color;
+  color:        $inversed-color;
+  margin:       40px inherit;
+}
+.button.m-home--callout--button {
+  margin: 40px inherit;
+}
+
+.m-home--callout {
+  padding: 40px 0;
+
+  &.inversed {
+    background: $primary-color;
+    color:      $inversed-color;
+
+    .m-home--callout--title {
+      color: $inversed-color;
+    }
+  }
+
+  pre {
+    margin-bottom: 15px;
+  }
+}
+
+.m-home--callout--title {
+  color:       $primary-color;
+  font-weight: bold;
+  margin:      40px 0 40px;
+  text-align:  center;
+}
+
+.m-home--try-out {
+  background: desaturate($primary-color, 25%);
+  color:      $inversed-color;
+  padding:    60px 0;
+
+  .input-group-button {
+    font-variant: small-caps;
+  }
+
+  .callout.alert {
+    color: darken($alert-color, 10%);
+  }
+  .callout.success {
+    color: darken($success-color, 10%);
+  }
+}

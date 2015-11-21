@@ -9,23 +9,27 @@ html lang="en"
     title
       | Does this email work?
   body
-    div class="top-bar"
-      div class="row"
-        div class="small-12 columns"
-          div class="top-bar-left"
-            ul class="dropdown menu" data-dropdown-menu=""
-              li class="menu-text"
-                | Does this email work?
-              li class="has-submenu"
-
-    = Enum.map [:error, :success], fn type ->
-      = if get_flash(@conn, type) do
-        div class="row"
-          div class="small-12 columns"
-            div class="callout #{get_flash_css_type(type)}"
-              p
-                = get_flash(@conn, type)
-
     = @inner
 
-    script src="#{static_path(@conn, "/js/bundle.js")}"
+    div class="m-footer text-center"
+      div class="row"
+        div class="small-12 columns"
+          p
+            ' This project is licensed under the
+            a href="http://choosealicense.com/licenses/gpl-3.0/"
+              | GNU GPL v3.0
+            |.
+          p
+            ' The source code is available on
+            a href="https://github.com/kdisneur/does_this_email_work"
+              | GitHub
+            |.
+
+          p
+            ' Made with
+            span class="love-heart"
+              ' ❤
+            | on planet Earth.
+
+
+    script src="#{static_path(@conn, "/assets/bundle.js")}"

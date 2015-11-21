@@ -48,6 +48,13 @@ defmodule DoesThisEmailWork.Web do
       use Phoenix.HTML
 
       import DoesThisEmailWork.Router.Helpers
+
+      def get_flash_css_type(:error) do
+        :alert
+      end
+      def get_flash_css_type(:success) do
+        :success
+      end
     end
   end
 

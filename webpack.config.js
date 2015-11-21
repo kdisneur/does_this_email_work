@@ -1,7 +1,7 @@
 module.exports = {
   entry: "./web/static/js/app.js",
   output: {
-    path: "./priv/static/js",
+    path: "./priv/static/assets/",
     filename: "bundle.js"
   },
   module: {
@@ -14,7 +14,8 @@ module.exports = {
             (__dirname + "/node_modules") + "&" +
           "includePaths[]=" +
             (__dirname + "/node_modules/compass-mixins/lib")
-      }
+      },
+      { test: /\.(ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
     ]
   }
 };

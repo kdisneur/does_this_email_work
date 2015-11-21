@@ -1,1 +1,123 @@
-= render DoesThisEmailWork.Validation.SingleView, "_form.html", conn: @conn, email: @email
+div class="m-home--header"
+  div class="top-bar"
+    div class="row"
+      div class="small-12 columns"
+        div class="top-bar-left"
+          ul class="dropdown menu" data-dropdown-menu=""
+            li class="menu-text"
+              | Does this email work?
+            li class="has-submenu"
+
+  div class="row"
+    div class="small-12 columns text-center"
+      h1 class="m-home--header--title"
+        | Simple. Accurate. Secure.
+
+  div class="row"
+    div class="small-12 columns text-center"
+      p class="m-home--header--description"
+        | The easiest way to check the validity of your emails.
+
+  div class="row"
+    div class="small-12 columns text-center"
+      a href="#try-out" class="large hollow button m-home--callout--button m-try-out--callback-js"
+        | Try it now
+
+div class="m-home--callout"
+  div class="row"
+    div class="small-12 columns"
+      div
+        i class="fa fa-smile-o"
+
+      h3 class="m-home--callout--title"
+        | Simple
+      p
+        |
+          No account needed. You can just send us a list of emails and we will
+          process them.
+
+      p
+        |
+          You are a developer? Great! you can just send us a list of emails through
+          the API:
+      pre
+        |
+          curl -XPOST https://does-this-email.work/api/validation \
+               -d "emails[]=email1@domain.com" \
+               -d "emails[]=email2@domain.com"
+
+      p
+        |
+          You dont't have a tech savvy available? It's unfortunate but keep calm we
+          got your back! You can just upload a text file containing a list of
+          emails.
+
+      div class="text-center"
+        a href="#" class="button large primary m-home--callout--button"
+          | Import a list of emails
+
+div class="m-home--callout inversed"
+  div class="row"
+    div class="small-12 columns"
+      div
+        i class="fa fa-bullseye"
+
+      h3 class="m-home--callout--title"
+        | Accurate
+      p
+        |
+          To be sure to always deliver the best result, we check all your emails
+          using 3 different methods. An email is valid when
+      ol
+        li the format actually looks like a valid email
+        li the email domain (gmail.com, ..) exists
+        li the server managing this domain knows this email address
+
+      p
+        |
+          We access the email SMTP but, don't worry, no emails are actually sent.
+
+      div class="text-center"
+        a href="#try-out" class="button hollow large m-home--callout--button m-try-out--callback-js"
+          | Test some email adresses manually
+
+div class="m-home--callout"
+  div class="row"
+    div class="small-12 columns"
+      div
+        i class="fa fa-shield"
+
+      h3 class="m-home--callout--title"
+        | Secure
+
+      p
+        |
+          The email you sent are not saved. We test them, we reply and we
+          forget them. Nothing is stored in a database. That's why you don't
+          have account.
+
+      p
+        |
+          We wanted to keep your emails safe hence we didn't want to store them
+          in any way.
+
+div class="m-home--try-out" id="try-out"
+  div class="row"
+    div class="small-12 medium-offset-3 medium-6 columns"
+      h3 class="m-home--try-out--title"
+        | Try out
+
+      p
+        |
+          You can try out some email address from here.
+
+      = Enum.map [:error, :success], fn type ->
+        = if get_flash(@conn, type) do
+          div class="row"
+            div class="small-12 columns"
+              div class="callout #{get_flash_css_type(type)}"
+                p
+                  = get_flash(@conn, type)
+
+
+      = render DoesThisEmailWork.Validation.SingleView, "_form.html", conn: @conn, email: @email

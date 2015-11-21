@@ -1,3 +1,5 @@
-= form_for @conn, single_path(@conn, :create), [as: :validation], fn form ->
-  = text_input form, :email
-  = submit "Validate"
+= form_for @conn, single_path(@conn, :create) <> "#try-out", [as: :validation], fn form ->
+  div class="input-group"
+    = text_input form, :email, placeholder: "john@doe.com", class: "input-group-field m-try-out--focus-field-js"
+    a href="#" class="input-group-button button m-try-out--button-js"
+      | validate

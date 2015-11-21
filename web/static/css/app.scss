@@ -1,7 +1,14 @@
 @charset "utf-8";
 
-// @import "font-awesome_override";
-// @import "font-awesome/scss/font-awesome";
+@import "colors";
+
+@import "compass-mixins/lib/compass";
+@import "font-awesome_override";
+@import "font-awesome/scss/font-awesome";
 @import "foundation-sites/scss/foundation";
 @import "foundation_override";
+
+@import "home";
+@import "footer";
+
 @include foundation-everything;
