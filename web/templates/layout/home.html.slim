@@ -3,7 +3,6 @@ html lang="en"
   head
     = render(DoesThisEmailWork.SharedView, "_head.html")
   body
-    = render(DoesThisEmailWork.SharedView, "_menu.html", conn: @conn)
     = @inner
     = render(DoesThisEmailWork.SharedView, "_footer.html")
     script src="#{static_path(@conn, "/assets/bundle.js")}"

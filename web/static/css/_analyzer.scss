@@ -1,0 +1,17 @@
+.row .callout.m-analyzer--email:first-child {
+  border-top-width: 1px;
+}
+
+.callout.m-analyzer--email {
+  margin-bottom:     0;
+  border-left-width: 10px;
+  border-top-width:  0px;
+
+  &.is-invalid {
+    border-left-color: $alert-color;
+  }
+
+  &.is-valid {
+    border-left-color: $success-color;
+  }
+}

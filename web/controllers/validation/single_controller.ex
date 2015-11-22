@@ -1,8 +1,10 @@
 defmodule DoesThisEmailWork.Validation.SingleController do
   use DoesThisEmailWork.Web, :controller
 
+  plug :put_layout, "home.html"
+
   def new(conn, _params) do
-    render conn, "new.html", email: nil
+    render(conn, "new.html", email: nil)
   end
 
   def create(conn, %{"validation" => %{"email" => email}}) when is_binary(email) do

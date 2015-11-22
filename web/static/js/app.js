@@ -15,5 +15,14 @@ jquery = require("jquery");
     $(".m-try-out--callback-js").click(function(e) {
       $(".m-try-out--focus-field-js").focus();
     });
+
+    var fileAnalyzerAppDOM = $(".m-file-analyzer-app-js");
+    if (fileAnalyzerAppDOM.length > 0) {
+      var React    = require("react/lib/React");
+      var ReactDOM = require("react/lib/ReactDOM");
+
+      var FileAnalyzerApp = require("./file_analyzer_app");
+      ReactDOM.render(<FileAnalyzerApp />, fileAnalyzerAppDOM[0]);
+    }
   });
 })(jquery);

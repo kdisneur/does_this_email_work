@@ -18,6 +18,8 @@ defmodule DoesThisEmailWork.Router do
 
     get "/", Validation.SingleController, :new
     post "/", Validation.SingleController, :create
+
+    get "/file/import", Validation.FileController, :new
   end
 
   scope "/api", DoesThisEmailWork.API do

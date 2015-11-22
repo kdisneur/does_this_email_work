@@ -6,6 +6,6 @@ defmodule DoesThisEmailWork.API.ValidationController do
       emails
       |> DoesThisEmailWork.Validation.validates
 
-    render conn, result: result
+    render(conn, result: result)
   end
 end
