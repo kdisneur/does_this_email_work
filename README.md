@@ -7,6 +7,8 @@ Simple Web application where you can validate emails:
 * API: you can call `/api/validation` with a list of emails
 * WEB: you can import a file containing one email by line
 
+![Screenshot](https://github.com/kdisneur/does_this_email_work/blob/master/screenshot.png)
+
 ### Installation
 
 
