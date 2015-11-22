@@ -16,22 +16,9 @@ defmodule DoesThisEmailWork.Web do
   below.
   """
 
-  def model do
-    quote do
-      use Ecto.Model
-
-      import Ecto.Changeset
-      import Ecto.Query, only: [from: 1, from: 2]
-    end
-  end
-
   def controller do
     quote do
       use Phoenix.Controller
-
-      alias DoesThisEmailWork.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 1, from: 2]
 
       import DoesThisEmailWork.Router.Helpers
     end
@@ -67,10 +54,6 @@ defmodule DoesThisEmailWork.Web do
   def channel do
     quote do
       use Phoenix.Channel
-
-      alias DoesThisEmailWork.Repo
-      import Ecto.Model
-      import Ecto.Query, only: [from: 1, from: 2]
     end
   end
 

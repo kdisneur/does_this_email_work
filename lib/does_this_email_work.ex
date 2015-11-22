@@ -8,7 +8,6 @@ defmodule DoesThisEmailWork do
 
     children = [
       supervisor(DoesThisEmailWork.Endpoint, []),
-      worker(DoesThisEmailWork.Repo, []),
       worker(DoesThisEmailWork.ValidationCache, []),
     ]
 

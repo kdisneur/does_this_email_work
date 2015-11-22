@@ -9,7 +9,6 @@ defmodule DoesThisEmailWork.Mixfile do
      compilers: [:phoenix] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     aliases: aliases,
      deps: deps]
   end
 
@@ -18,8 +17,7 @@ defmodule DoesThisEmailWork.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {DoesThisEmailWork, []},
-     applications: [:email_checker, :phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+     applications: [:email_checker, :phoenix, :phoenix_html, :cowboy, :logger]]
   end
 
   # Specifies which paths to compile per environment.
@@ -34,22 +32,9 @@ defmodule DoesThisEmailWork.Mixfile do
       {:cowboy,              "~> 1.0"},
       {:email_checker,       "~> 0.0.2"},
       {:phoenix,             "~> 1.0.3"},
-      {:phoenix_ecto,        "~> 1.1"},
-      {:postgrex,            ">= 0.0.0"},
       {:phoenix_html,        "~> 2.1"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_slim,        "~> 0.4.1"}
    ]
-  end
-
-  # Aliases are shortcut or tasks specific to the current project.
-  # For example, to create, migrate and run the seeds file at once:
-  #
-  #     $ mix ecto.setup
-  #
-  # See the documentation for `Mix` for more info on aliases.
-  defp aliases do
-    ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"]]
   end
 end

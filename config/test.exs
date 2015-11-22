@@ -8,12 +8,3 @@ config :does_this_email_work, DoesThisEmailWork.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :does_this_email_work, DoesThisEmailWork.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "work",
-  password: "",
-  database: "does_this_email_work_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox

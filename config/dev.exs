@@ -31,12 +31,3 @@ config :logger, :console, format: "[$level] $message\n"
 # Do not configure such in production as keeping
 # and calculating stacktraces is usually expensive.
 config :phoenix, :stacktrace_depth, 20
-
-# Configure your database
-config :does_this_email_work, DoesThisEmailWork.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "work",
-  password: "",
-  database: "does_this_email_work_dev",
-  hostname: "localhost",
-  pool_size: 10
