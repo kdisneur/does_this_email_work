@@ -13,33 +13,19 @@ defmodule DoesThisEmailWork.ValidationCache do
     GenServer.start_link(__MODULE__, %{}, name: @gen_server_name)
   end
 
-  def validates(email) when is_binary(email) do
-    GenServer.call(@gen_server_name, {:validates, email})
+  def add(result) do
+    GenServer.call(@gen_server_name, {:add, result})
   end
 
-  def handle_call({:validates, email}, _from, emails_cache) do
-    result =
-      emails_cache
-      |> validate_from_cache_or_generate(email)
+  def fetch(email) when is_binary(email) do
+    GenServer.call(@gen_server_name, {:fetch, email})
+  end
 
+  def handle_call({:fetch, email}, _from, emails_cache) do
+    {:reply, emails_cache[email], emails_cache}
+  end
+
+  def handle_call({:add, result={_state, email}}, _from, emails_cache) do
     {:reply, result, Map.put(emails_cache, email, result)}
-  end
-
-  defp validate_from_cache_or_generate(emails_cache, email) do
-    case emails_cache[email] do
-      nil ->
-        validate(email)
-      cache_result ->
-        cache_result
-    end
-  end
-
-  defp validate(email) do
-    case EmailChecker.valid?(email) do
-      true ->
-        {:ok, email}
-      false ->
-        {:error, email}
-    end
   end
 end

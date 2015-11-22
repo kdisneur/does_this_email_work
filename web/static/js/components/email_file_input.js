@@ -16,7 +16,7 @@ module.exports = React.createClass({
   _onFileChange: function(e, result) {
     var progressEvent = result[0][0];
     var rawEmails     = progressEvent.target.result;
-    var emails        = _.compact(rawEmails.split("\n"));
+    var emails        = _.compact(_.map(rawEmails.split("\n"), _.trim));
 
     this.props.onEmailsLoaded(emails);
   }

@@ -27,14 +27,54 @@ defmodule DoesThisEmailWork.Validation do
   """
   def validates(email) when is_binary(email) do
     email
-    |> validate
+    |> fetch_or_validate
   end
   def validates(emails) when is_list(emails) do
     emails
-    |> Enum.map(&validate/1)
+    |> Enum.map(&asynchronous_fetch_or_validate/1)
+    |> Enum.map(&analyze_validation_reply/1)
+  end
+
+  defp analyze_validation_reply({pid, email}) do
+    try do
+      Task.await(pid, 5_000)
+    catch
+      :exit, _ ->
+        invalid_tuple(email)
+    end
+  end
+
+  defp asynchronous_fetch_or_validate(email) do
+    pid = Task.async(fn -> fetch_or_validate(email) end)
+
+    {pid, email}
+  end
+
+  defp fetch_or_validate(email) do
+    case DoesThisEmailWork.ValidationCache.fetch(email) do
+      nil ->
+        email
+        |> validate
+        |> DoesThisEmailWork.ValidationCache.add
+      result ->
+        result
+    end
+  end
+
+  defp invalid_tuple(email) do
+    {:error, email}
   end
 
   defp validate(email) do
-    DoesThisEmailWork.ValidationCache.validates(email)
+    case EmailChecker.valid?(email) do
+      true ->
+        valid_tuple(email)
+      false ->
+        invalid_tuple(email)
+    end
+  end
+
+  defp valid_tuple(email) do
+    {:ok, email}
   end
 end

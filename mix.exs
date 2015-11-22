@@ -30,7 +30,7 @@ defmodule DoesThisEmailWork.Mixfile do
   defp deps do
     [
       {:cowboy,              "~> 1.0"},
-      {:email_checker,       "~> 0.0.2"},
+      {:email_checker,       "~> 0.0.3"},
       {:phoenix,             "~> 1.0.3"},
       {:phoenix_html,        "~> 2.1"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
