@@ -1,19 +1,23 @@
-# DoesThisEmailWork
+# Does This Email Work
 
-To start your Phoenix app:
+[![Circle CI](https://circleci.com/gh/kdisneur/email_checker/tree/master.svg?style=svg)](https://circleci.com/gh/kdisneur/does_this_email_work/tree/master)
 
-  1. Install dependencies with `mix deps.get`
-  2. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  3. Start Phoenix endpoint with `mix phoenix.server`
+Simple Web application where you can validate emails:
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+* API: you can call `/api/validation` with a list of emails
+* WEB: you can import a file containing one email by line
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+### Installation
 
-## Learn more
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: http://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+1. Install dependencies with `mix deps.get` and `npm install`
+2. Start application with `mix phoenix.server`
+3. Visit `http://localhost:4000`
+
+### CHANGELOG
+
+[CHANGELOG](https://github.com/kdisneur/does_this_email_work/blob/master/CHANGELOG)
+
+### License
+
+[GNU GPL v3.0](https://github.com/kdisneur/does_this_email_work/blob/master/LICENSE)

@@ -1,0 +1,4 @@
+## v0.0.1 (2015-11-22)
+
+* Add endpoint to validate emails using a JSON API
+* Add page to validate emails using a file uploader (one email by line)
