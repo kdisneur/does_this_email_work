@@ -1,7 +1,8 @@
 {
+  "name": "does-this-email-work",
   "repository": {},
-  "dependencies": {},
-  "devDependencies": {
+  "version": "0.0.1",
+  "dependencies": {
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
     "babel-preset-react": "^6.1.18",
