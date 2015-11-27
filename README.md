@@ -9,6 +9,8 @@ Simple Web application where you can validate emails:
 
 ![Screenshot](https://github.com/kdisneur/does_this_email_work/blob/master/screenshot.png)
 
+:warning: Do not use this method on a big batch of emails, this may cause your IP to be added to a blacklist. :warning:
+
 ### Installation
 
 
